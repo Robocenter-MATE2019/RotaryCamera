@@ -7,7 +7,7 @@
 class RotaryCamera {
 public:
 	RotaryCamera();
-	void init(uint8_t pin);
+	void init(int8_t pin);
 	void rotate(int8_t angle);
 	~RotaryCamera();
 private:
@@ -15,5 +15,5 @@ private:
 	uint8_t m_angle;
 	Servo m_driver;
 	uint8_t m_pinl;
-	uint8_t m_lastangle;
+	int8_t m_lastangle = 0;
 };

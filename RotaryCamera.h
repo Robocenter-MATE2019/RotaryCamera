@@ -14,6 +14,6 @@ private:
 	Timer timer;
 	uint8_t m_angle;
 	Servo m_driver;
-	uint8_t m_pinl;
+	uint8_t m_pinl; // Почему pinl??? 
 	int8_t m_lastangle = 0;
 };

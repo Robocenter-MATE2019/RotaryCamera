@@ -11,10 +11,10 @@ public:
 	void rotate(int8_t angle);
 	~RotaryCamera();
 private:
-	Timer timer;
+	Timer timer;// m_timer
 	uint8_t m_angle;
 	Servo m_driver;
 	uint8_t m_pin;
 	int8_t m_lastangle = 0;
-	int8_t defAngle;
+	int8_t defAngle;// m_defAngle
 };

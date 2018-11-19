@@ -6,14 +6,15 @@
 
 class RotaryCamera {
 public:
-	RotaryCamera();
-	void init(int8_t pin);
+	RotaryCamera(int8_t pin);
+	void init();
 	void rotate(int8_t angle);
 	~RotaryCamera();
 private:
 	Timer timer;
 	uint8_t m_angle;
 	Servo m_driver;
-	uint8_t m_pinl; // Почему pinl??? 
+	uint8_t m_pin;
 	int8_t m_lastangle = 0;
+	int8_t defAngle;
 };

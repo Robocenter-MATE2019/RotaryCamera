@@ -3,15 +3,15 @@
 RotaryCamera::RotaryCamera(int8_t pin)
 {
 	m_pin = pin;
-	defAngle = 90;
+	m_defAngle = 90;
 }
 
 void RotaryCamera::init()
 {
 	m_driver.attach(m_pin);
-	timer.start();
-	m_driver.write(defAngle);
-	m_angle = defAngle;
+	m_timer.start();
+	m_driver.write(m_defAngle);
+	m_angle = m_defAngle;
 }
 
 RotaryCamera::~RotaryCamera()
@@ -22,10 +22,10 @@ RotaryCamera::~RotaryCamera()
 void RotaryCamera::rotate(int8_t angle)
 {	
 	m_lastangle = angle != m_lastangle ? angle : m_lastangle;
-	if (timer.elapsed() > 30)
+	if (m_timer.elapsed() > 30)
 	{
 		m_angle += m_lastangle;
-		timer.start();
+		m_timer.start();
 		m_angle = constrain(m_angle, 25, 165);
 		m_driver.write(m_angle);
 	}
